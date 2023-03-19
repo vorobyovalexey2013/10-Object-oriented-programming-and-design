@@ -2,21 +2,44 @@ package org.example;
 
 public class Radio {
 
-    public int numberStation; //Номер текущей радиостанции.
-    public int Volume; //Громкость звука.
+    private int numberStation; //Номер текущей радиостанции.
+    private int volume; //Громкость звука.
 
     public int getNumberStation() {
         return numberStation;
     }
 
+    public void setNumberStation(int numberStation) {
+        if (numberStation < 0) {
+            return;
+        }
+        if (numberStation > 9) {
+            return;
+        }
+        this.numberStation = numberStation;
+    }
+
+    public int getVolume() {
+        return volume;
+    }
+
+    public void setVolume(int volume) {
+        if (volume < 0) {
+            return;
+        }
+        if (volume > 100) {
+            return;
+        }
+        this.volume = volume;
+    }
+
     //увеличение номара радиостанции
-    public int next() {
+    public void next() {
         if (numberStation < 9) {
             numberStation = numberStation + 1;
         } else {
             numberStation = 0;
         }
-        return numberStation;
     }
 
     //уменьшение номаре радиостанции
@@ -29,37 +52,24 @@ public class Radio {
         return numberStation;
     }
 
-
-    // выставление радиостанции
-    public void setstation(int newNumberStation) {
-        if (newNumberStation > 9) {
-            return;
-        }
-        if (newNumberStation < 0) {
-            return;
-        } else {
-            numberStation = newNumberStation;
-        }
-    }
-
     //увеличение звука
     public int increaseVolume() {
-        if (Volume < 100) {
-            Volume = Volume + 1;
+        if (volume < 99) {
+            volume = volume + 1;
         } else {
-            Volume = 100;
+            volume = 100;
         }
-        return Volume;
+        return volume;
     }
 
     //уменьшение номаре радиостанции
     public int reduceVolume() {
-        if (Volume > 1) {
-            Volume = Volume - 1;
+        if (volume > 1) {
+            volume = volume - 1;
         } else {
-            Volume = 0;
+            volume = 0;
         }
-        return Volume;
+        return volume;
     }
 
 }
