@@ -174,4 +174,13 @@ public class RadioTest {
         int actual = volume.getVolume();
         Assertions.assertEquals(expected, actual);
     }
+    @Test
+    public void shuldSetMaxStationCountOne (){
+    Radio station = new Radio (20);
+    station.setNumberStation (15);
+    int expected = 15;
+    int actual = station.getNumberStation();
+    Assertions.assertEquals(expected, actual);
+    }
+
 }

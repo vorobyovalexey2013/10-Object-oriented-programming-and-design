@@ -4,7 +4,13 @@ public class Radio {
 
     private int numberStation; //Номер текущей радиостанции.
     private int volume; //Громкость звука.
-
+    private int maxStation;
+    public Radio (){
+    maxStation = 9;
+    }
+    public Radio (int stationCount){
+    maxStation = stationCount - 1;
+    }
     public int getNumberStation() {
         return numberStation;
     }
@@ -13,7 +19,7 @@ public class Radio {
         if (numberStation < 0) {
             return;
         }
-        if (numberStation > 9) {
+        if (numberStation > maxStation) {
             return;
         }
         this.numberStation = numberStation;
@@ -35,7 +41,7 @@ public class Radio {
 
     //увеличение номара радиостанции
     public void next() {
-        if (numberStation < 9) {
+        if (numberStation < maxStation) {
             numberStation = numberStation + 1;
         } else {
             numberStation = 0;
@@ -47,7 +53,7 @@ public class Radio {
         if (numberStation > 0) {
             numberStation = numberStation - 1;
         } else {
-            numberStation = 9;
+            numberStation = maxStation;
         }
         return numberStation;
     }
